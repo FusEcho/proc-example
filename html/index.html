@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+    <title>proc-examples</title>
+    <link rel="stylesheet" href="../css/style.css" />
+	<style>
+    #layout {
+        padding-bottom: 100px;
+    }
+    
+    #header {
+        width: 100%;
+        color: #fff;
+        background: #2196F3;
+        padding: 60px 0;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    a {
+        color: #2196F3;
+        text-decoration: none;
+    }
+    
+    #header h1 {
+        font-size: 45px; 
+        font-weight: normal;
+    }
+    
+	ul { 
+		width: 90%;
+        padding-bottom:30px;
+		margin: 0 auto;
+		list-style: none;
+	}
+    
+    ul li {
+        width: 24%;
+        margin-bottom: 4px;
+        display: inline-block;
+    }
+    
+    ul li a {
+        color: #2196F3;
+        display: block;
+        padding: 4px 15px;
+        font-size: 14px;
+        text-align: left;
+        text-decoration: none;
+        -webkit-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+    }
+    
+    ul li a span {
+        color: #999;
+        display: block;
+        padding-top: 3px;
+        font-size: 80%;
+    }
+    
+    ul li a:hover {
+        color: #fff;
+        background: #2196F3;
+        border-radius: 8px;
+    }
+    
+    ul li a:hover span {
+        color: #fff;
+    }
+    
+    .category, .footer {
+		width: 90%;
+        padding: 15px;
+        font-size: 18px;
+		margin: 15px auto 20px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .footer {
+        border: none;
+        border-top: 1px solid #eee;
+        font-size: 12px;
+        margin-top: 30px;
+        padding-top: 35px;
+        text-align: right;                
+    }
+    
+    .menu {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .menu a {
+        color: #fff;
+        display: inline-block;
+        text-decoration: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        -webkit-transition: background-color 300ms ease-out;
+        transition: background-color 300ms ease-out;
+    }
+    .menu a:hover {
+        background-color: #1A8BE8;
+    }
+    
+    [href="#top"] {
+        color: #999;
+        float: right;
+        padding-top: 10px;
+        display: block;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: normal;
+    }
+    
+    [href="#top"] .fa {
+        margin-left: 8px;
+        font-size: 1.4em;
+    }
+</style>
+</head>
+<body>
+	<a name="top"></a>
+	<div id="layout">
+	    <div id="header">
+            <h1><i class=""></i></h1>
+            <h1>Proc-Examples</h1>
+            <p>Practice makes experts.</p>
+            <div class="menu">
+                <a href="#basic">Basic</a>
+                <a href="#Proc">Proc</a>
+                <a href="#collection">Collections</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+        <!--Basic-->
+        <h1 class="category"><a name="basic"></a>Basic</h1>
+		<ul>
+			<li>
+				<a href="./float.html" target="_blank">浮动块 <span>Float Box</span></a>
+			</li>
+			<li>
+				<a href="./KeyCode.html" target="_blank">显示按键的键码值 <span>KeyCode</span></a>
+			</li>
+			<li>
+				<a href="./size-text.html" target="_blank">按文本大小切换 <span>Auto switch text box </span></a>
+			</li>
+			<li>
+				<a href="./promot.html" target="_blank">按逗号分隔字符 <span>separate keywords </span></a>
+			</li>
+		</ul>
+        <!--Proc-->
+		<h1 class="category">
+		    <a href="#top">TOP<i class="fa fa-angle-up"></i></a>
+		    <a name="Proc"></a>Proc
+		</h1>
+		<ul>
+			<li>
+				<a href="./lotto.html" target="_blank">抽奖效果 <span>draw a lottery or raffle</span></a>
+			</li>
+			<li>
+				<a href="./photowall.html" target="_blank">照片墙 <span>css3 photowall</span></a>
+			</li>
+			<li>
+				<a href="./example.html" target="_blank">项目实例<span>multi practice of websites</span></a>
+			</li>
+        </ul>
+        <!--Collection-->
+		<h1 class="category">
+		    <a href="#top">TOP<i class="fa fa-angle-up"></i></a>
+		    <a name="collection"></a>Collections
+		</h1>
+		<ul>
+			<li>
+				<a href="./piano.html" target="_blank">钢琴 <span>Piano</span></a>
+			</li>
+			<li>
+				<a href="./whiting.html" target="_blank">大白 <span>Dabai your hero</span></a>
+			</li>
+        </ul>
+        <!--底部栏-->
+		<div class="clear"></div>
+        <div class="footer">
+            <p>
+                <a href="http://www.wyjszff.com" target="_blank" title="Another">
+                    <!--img src="../images/logo.jpg"/-->
+                </a>
+            </p>
+            <p>Copyright &copy; 2015 <a href="https://www.wyjszff.com" target="_blank" title="Another">Another</a></p>
+        </div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+        <script>
+            var clickOrTouch = function(touchType) {
+                touchType = touchType || "touchend";
+                var eventType = "click";
+
+                try {
+                    document.createEvent("TouchEvent");
+                    eventType = touchType;
+                } catch(e) {}
+
+                return eventType;
+            };
+            
+            $(function() {
+        
+                $("a[href*=#]").bind(clickOrTouch(), function() {
+                    if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) 
+                    {
+                        var hash   = this.hash;
+                        var target = $(hash);
+                        target     = target.length && target || $("[name=" + hash.slice(1) + "]");
+
+                        if (target.length) 
+                        {                            
+                            $("html, body").animate({
+                                scrollTop: target.offset().top
+                            }, 800);
+
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
+</body>
+</html>
