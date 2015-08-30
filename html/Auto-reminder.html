@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>自动提示的文本框</title>
+<style type="text/css">
+/*文本框的样式*/
+input{
+   font-size:12px;
+   border:#000000 1px solid;
+   width:200px;
+   padding:1px; margin:0px;
+}
+/*提示框的样式*/
+#popbox{
+   color:#666666;
+   font-size:12px;
+   position:absolute;
+   width:202px;
+   left:152px;top:25px;
+}
+/*显示提示框*/
+#popbox.show{
+   border:#666666 1px solid;
+}
+/*隐藏提示框*/
+#pop.hide{
+   border:none;
+}
+/*提示框列表样式*/
+ul{
+   list-style:none;
+   margin:0px;
+   padding:0px;
+}
+li.mouseOver{
+   background-color:#666666;
+   color:#FFFFFF
+}
+li.mouseOut{
+   background-color:#FFFFFF;
+   color:#666666;
+}
+</style>
+<script language="javascript">
+ var objInput;    
+ var objDiv;        
+ var objUl;
+ var provinces=["Beijing","Tianjin","Shanghai","Chongqing","Hebei","Henan","Heilongjiang","Jilin","Changchun","Shandong","Anhui","Shanxi","Shanxi2","Hubei","Hunan","Jiangxi","Fujian","Guizhou","Fujian","Jiangsu","Zhejiang","Guangzhou","Yunnan","Hainan","Xizang","Qinghai","Xinjiang","Neimenggu","Sichuan","Gansu","Ningxia","XiangGang","Aomen"];
+/* 对所有城市按字母排序*/
+ provinces.sort();
+/* 初始化变量*/
+function init(){
+   objInput = document.forms["form1"].province;
+   objDiv = document.getElementById("popbox");
+   objUl = document.getElementById("ulProvinces");
+ }
+/* 清空提示框并隐藏*/
+function clear(){
+   for(var i=objUl.childNodes.length-1;i>=0;i--){
+       objUl.removeChild(objUl.childNodes[i]);
+    }
+   objDiv.className = "hide";
+}
+/*显示匹配结果*/
+function setProvince(resultProvinces){
+   clear();   
+   objDiv.className = "show";
+   var objLi;
+   /*逐一显示所有匹配结果*/
+   for(var i=0;i<resultProvinces.length;i++){
+      objLi = document.createElement("li");
+      objUl.appendChild(objLi);
+      objLi.appendChild(document.createTextNode(resultProvinces[i]));
+      objLi.onmouseover = function(){
+          this.className = "mouseOver";    //鼠标经过时高亮显示
+      }
+      objLi.onmouseout = function(){
+          this.className = "mouseOut";    //离开时恢复原样
+      }
+      objLi.onclick = function(){
+          /* 用户点击某个匹配项时，将该值显示在输入框中*/
+          objInput.value = this.firstChild.nodeValue;
+          clear();   
+      }
+   }
+}
+/*对用户输入的字符与数组中存放的城市集进行匹配*/
+function findProvince(){
+    init();       
+    if(objInput.value.length > 0 && objInput.value.length !=""){
+	/*声明一个新数组来存放匹配结果*/
+       var results = new Array(); 
+       for(var i=0;i<provinces.length;i++){
+	      /*转化大小写*/
+		  if (provinces[i].substring(0,objInput.value.length).toLowerCase()==objInput.value.toLowerCase()){
+		     /*将匹配结果存入数组results中*/
+			 results.push(provinces[i]);
+		  }
+	   }
+	   if(results.length>0){
+		   setProvince(results);}  
+	   else{
+           clear(); 
+		}
+	} else{
+		clear(); 
+	}       
+}
+window.onload=function(){
+	var Input=document.getElementById("province");
+	Input.onkeyup=function(){
+		findProvince();
+	}
+}
+</script>
+</head>
+<body>
+<form id="form1"  method="post" name="form1">
+    请输入您所在城市：<input type="text" name="province" id="province"  />
+</form>
+<div id="popbox">
+   <ul id="ulProvinces"></ul>
+</div>
+</body>
+</html>

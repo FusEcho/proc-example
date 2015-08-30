@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>draggable()</title>
+<style type="text/css">
+<!--
+.block{
+	border:2px solid #760022;
+	background-color:#ffb5bb;
+	width:80px; height:25px;
+	margin:5px; float:left; 
+	padding:20px; text-align:center;
+	font-size:14px;
+	
+}
+-->
+</style>
+<script language="javascript" src="../jQuery/jquery-1.2.4a.js"></script>
+<script language="javascript" src="../js/ui.base.min.js"></script>
+<script language="javascript" src="../js/ui.draggable.min.js"></script>
+<script language="javascript">
+$(function(){
+	for(var i=0;i<4;i++){
+		//添加4个透明的<div>块
+		$(document.body).append($("<div class='block'>Block"+i.toString()+"</div>").css("opacity",0.6));
+	}
+	//直接调用拖拽方法
+	$(".block").draggable();
+});
+</script>
+</head>
+<body>
+</body>
+</html>
