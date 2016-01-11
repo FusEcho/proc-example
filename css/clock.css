@@ -1,0 +1,283 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.flip{
+-webkit-backface-visibility:hidden;
+-webkit-animation: flipper .3s; 
+-moz-backface-visibility:hidden;
+-moz-animation: flipper .3s; 
+backface-visibility:hidden;
+animation: flipper .3s; 
+}
+
+@-webkit-keyframes flipper
+{
+0% {-webkit-transform: rotateX(0deg);}
+100% {-webkit-transform: rotateX(360deg);}
+
+}
+@-moz-keyframes flipper
+{
+0% {-moz-transform: rotateX(0deg);}
+100% {-moz-transform: rotateX(360deg);}
+
+}
+@-keyframes flipper
+{
+0% {transform: rotateX(0deg);}
+100% {transform: rotateX(360deg);}
+
+}
+*{
+    padding:0px;
+	margin:0px;
+	outline:none;
+}
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(../images/bg1.jpg) fixed;
+	background-size:cover;
+    min-width:700px;
+}
+
+/*side bar css*/
+.side{
+	position:fixed;
+	right:0;
+	top:0;
+	width:150px;
+	height:100%;
+	
+	background:rgba(0,0,0,.8);
+}
+
+.side h3{
+	color:#eee;
+	padding:0px 10px;
+	text-align:center;
+	font-weight:normal;
+	background:#000;
+	line-height:50px;
+	border-bottom:1px solid #222;
+}
+.side span{
+	display:block;
+	color:#F90;
+	line-height:50px;
+	padding:0px 10px;
+	cursor:pointer;
+	transition:all .2s;
+}
+.side span:hover, .side span.active{
+	background:#111;
+	color:#F33;
+	border-left:5px solid #f33;
+}
+div.hide{
+	position:fixed;
+	width:150px;
+	bottom:0;
+	right:0;
+	text-align:center;
+}
+div.hide span{
+	display:block;
+	line-height:40px;
+	cursor:pointer;
+	background:#000;
+	color:#eee;
+	padding:0;
+}
+.sett_time{
+	margin-top:30px;
+	margin-bottom:5px;
+}
+
+.set_sel{
+	width:70px;
+	height:30px;
+	border:1px solid #000;
+	background:#111;
+	color:#F93;
+}
+
+/*style 1*/
+
+table.style1{
+	margin:auto;
+	text-align:center;
+	margin-top:12%;
+	background:#e74c3c;
+	border-radius:3px;
+	box-shadow:0px 0px 3px rgba(0,0,0,.7);
+}
+#clock1{
+	font-size:120px;
+}
+span.digit{	
+	text-align:center;
+	padding:0px 10px;
+}
+#clock1 span{
+	display:inline-block;
+	color:#eee;
+}
+#clock1 div.time{
+	padding:40px;	
+	text-shadow:3px 3px 5px rgba(0,0,0,.2);
+
+}
+#clock1 div.date{
+	font-size:30px;
+	background:#c0392b;
+	padding:20px 0px;
+	color:#eee;
+	border-radius:0px 0px 3px 3px ;
+}
+
+
+/*style 2*/
+
+table.style2{
+	
+	margin:auto;
+	margin-top:12%;
+	background:#16a085;
+	
+	box-shadow:0px 0px 10px rgba(0,0,0,.4);
+	border:1px solid #2c3e50;
+}
+
+#style2 span{
+	font-size:70px;
+	display:inline-block;
+}
+#style2 .time{
+	padding:30px;
+	color:#eee;
+	text-shadow:3px 3px 5px rgba(0,0,0,.2);
+	
+}
+#style2 .date{
+	background:#34495e;
+	color:#1abc9c;
+	font-size:30px;
+	text-align:center;
+	padding:20px;
+}
+
+/* style3 */
+
+table.style3{
+	margin:auto;
+	margin-top:12%;
+}
+
+#style3 span{
+	
+	display:inline-block;
+}
+#style3 .time{
+	font-family:Digital-7;
+	font-size:100px;
+	padding:20px 0px;
+	color:#eee;
+	display:inline-block;
+	line-height:100px;
+}
+#style3 .time span.digit{
+	font-family:Digital-7;
+	background:rgba(0,0,0,.5);
+	margin:0px 5px;
+	font-size:100px;
+	border-radius:5px;
+	height:100px;
+	color:#f39c12;
+	text-shadow:0px 0px 3px #000;
+	line-height:100px;
+	text-align:center;
+	width:100px;
+}
+#style3 .date{
+	font-family:Digital-7;
+	color:#ecf0f1;
+	text-shadow:0px 0px 3px #000;
+	font-size:70px;
+	text-align:center;
+}
+
+/*style 4 css*/
+
+table.style4{
+	font-family:Digital-7;
+	margin:auto;
+	margin-top:12%;
+}
+
+#style4 .time{	
+	padding:0px 0px;
+	display:inline-block;
+}
+#style4 .time{
+	display:inline-block;
+	line-height:140px;
+	background:#2c3e50;
+	font-size:100px;
+	padding:0px 10px;
+	color:#3498db;
+	text-align:center;
+	float:left;
+	text-shadow:1px 1px 0px rgba(0,0,0,.3);
+}
+#style4 .time .digit{
+	width:100px;
+	display:inline-block;
+	text-align:center;
+}
+#style4 .date{	
+	float:left;
+	line-height:70px;
+	display:inline-block;
+	color:#ecf0f1;
+	font-size:60px;
+	text-align:center;
+}
+#style4  .date div{
+	padding:0px 10px;
+	background:#2980b9;
+}
+#style4 .date .date1{
+	padding:0px 10px;
+	
+	background:#3498db;
+}
+/*style 5*/
+
+.style5{
+	margin:auto;
+	margin-top:12%;
+	background:#34495e;
+	border:1px solid #2c3e50;
+	text-shadow:1px 1px 0px #036;	
+	box-shadow:3px 3px 5px rgba(0,0,0,.2);
+}
+#style5 .date{
+	text-align:center;	
+	color:#7f8c8d;
+	font-size:20px;
+	line-height:50px;
+	
+}
+#style5 .date .date1{
+	font-size:80px;
+	color:#e74c3c;
+	line-height:90px;
+	
+}
+#style5 .time{
+	background:#2c3e50;
+	font-size:30px;
+	color:#ccc;
+	padding:3px 10px;
+}
